@@ -27,7 +27,7 @@ const navigation = [
     name: 'Menú',
     icon: MenuIcon,
     items: [
-      { name: 'Dashboard', href: '/dashboard' },
+      // { name: 'Dashboard', href: '/dashboard' },
       { name: 'Personas', href: '/personas' },
       { name: 'Proyectos', href: '/proyectos' },
       { name: 'Auditorías', href: '/auditorias' },
@@ -105,8 +105,10 @@ export default function Layout({ children }: LayoutProps) {
                   type="button"
                   className="p-2 text-gray-500 hover:text-primary"
                   onClick={() => {
-                    localStorage.removeItem('isAuthenticated');
-                    navigate('/login');
+                    if (window.confirm('¿Estás seguro de que deseas cerrar sesión?')) {
+                      localStorage.removeItem('isAuthenticated');
+                      navigate('/login');
+                    }
                   }}
                 >
                   <LogOut className="h-5 w-5" />

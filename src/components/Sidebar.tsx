@@ -72,25 +72,18 @@ export default function Sidebar({ navigation, open, setOpen }: SidebarProps) {
         <nav className="mt-5 flex flex-1 flex-col divide-y divide-primary-light">
           <div className="space-y-1 px-4">
             <div className="py-2">
-              <div className="mb-2 px-3">
-                <div className="flex items-center text-sm font-medium text-gray-300">
-                  <HomeIcon className="mr-3 h-5 w-5" />
-                  Inicio
-                </div>
-              </div>
-              <div className="space-y-1">
-                <Link
-                  to="/"
-                  className={clsx(
-                    'group flex items-center rounded-md px-3 py-2 text-sm font-medium',
-                    location.pathname === '/'
-                      ? 'bg-primary-light text-white'
-                      : 'text-gray-300 hover:bg-primary-light hover:text-white'
-                  )}
-                >
-                  <span className="truncate">Inicio</span>
-                </Link>
-              </div>
+              <Link
+                to="/dashboard"
+                className={clsx(
+                  'group flex items-center rounded-md px-3 py-2 text-sm font-medium',
+                  location.pathname === '/dashboard'
+                    ? 'bg-primary-light text-white'
+                    : 'text-gray-300 hover:bg-primary-light hover:text-white'
+                )}
+              >
+                <HomeIcon className="mr-3 h-5 w-5" />
+                <span className="truncate">Inicio</span>
+              </Link>
             </div>
             {navigation.map((group) => (
               <div key={group.name} className="py-2">
