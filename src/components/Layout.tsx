@@ -11,7 +11,7 @@ import {
   Moon
 } from 'lucide-react';
 import Sidebar from './Sidebar';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const navigation = [
   {
@@ -60,6 +60,7 @@ export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const user = {
     email: 'usuario@ejemplo.com',
@@ -103,6 +104,10 @@ export default function Layout({ children }: LayoutProps) {
                 <button
                   type="button"
                   className="p-2 text-gray-500 hover:text-primary"
+                  onClick={() => {
+                    localStorage.removeItem('isAuthenticated');
+                    navigate('/login');
+                  }}
                 >
                   <LogOut className="h-5 w-5" />
                 </button>
