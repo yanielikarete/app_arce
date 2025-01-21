@@ -12,6 +12,8 @@ import Estados from '../pages/Estados';
 import Categorias from '../pages/Categorias';
 import Proveedores from '../pages/Proveedores';
 import NuevoProveedor from '../pages/NuevoProveedor';
+import Personas from '../pages/Personas';
+import Proyectos from '../pages/Proyectos';
 
 interface PrivateRouteProps {
   children: React.ReactNode;
@@ -105,6 +107,22 @@ export default function AppRoutes() {
           element={
             <PrivateRoute>
               <Layout><NuevoProveedor /></Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/personas"
+          element={
+            <PrivateRoute>
+              <Layout><Personas /></Layout>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/proyectos"
+          element={
+            <PrivateRoute>
+              <Layout><Proyectos /></Layout>
             </PrivateRoute>
           }
         />
